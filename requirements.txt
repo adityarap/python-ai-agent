@@ -1,4 +1,4 @@
-tapi
+fastapi
 uvicorn[standard]
 pytest
 httpx
