@@ -1,3 +1,4 @@
+
 name: Python AI Agent CI
 
 on:
@@ -10,9 +11,8 @@ on:
       - main
 
 jobs:
-  test:
-    name: Build and Test
-
+  test-and-build:
+    name: Test and Build Docker Image
     runs-on: ubuntu-latest
 
     steps:
@@ -36,3 +36,7 @@ jobs:
 
       - name: Run tests
         run: pytest -v
+
+      - name: Build Docker image
+        run: |
+          docker build -t python-ai-agent:${{ github.sha }} .
